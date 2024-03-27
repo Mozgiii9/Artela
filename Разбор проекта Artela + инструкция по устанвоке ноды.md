@@ -238,20 +238,20 @@ artelad debug addr (ваш address)
 artelad q bank balances $(artelad keys show Имя_вашего_кошелька -a)
 ```
 
-### 17. Создадим валидатора. Введем одну большую команду. "moniker", "details" замените на свои значения:
+### 17. Создадим валидатора. Введем одну большую команду. "moniker", "from" замените на свои значения. Обратите внимание на кавычки:
 ```
 artelad tx staking create-validator \
 --amount=1000000uart \
 --pubkey=$(artelad tendermint show-validator) \
---moniker="" \
+--moniker="Имя_вашего_кошелька" \
 --identity=FFB0AA51A2DF5955 \
---details="" \
+--details="-" \
 --chain-id=artela_11822-1 \
 --commission-rate=0.10 \
 --commission-max-rate=0.20 \
 --commission-max-change-rate=0.01 \
 --min-self-delegation=1 \
---from=M0zgiii \
+--from=Имя_вашего_кошелька \
 --gas-prices=0.1uart \
 --gas-adjustment=1.5 \
 --gas=auto \
