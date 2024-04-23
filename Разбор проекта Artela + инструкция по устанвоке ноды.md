@@ -115,7 +115,7 @@ artelad query bank balances $WALLET_ADDRESS
 artelad q bank balances $(artelad keys show Имя_вашего_кошелька -a)
 ```
 
-### 17. Создадим валидатора. Введем одну большую команду. "moniker", "from" замените на свои значения. Обратите внимание на кавычки:
+**7. Создадим валидатора. Введем одну большую команду. "moniker", "from" замените на свои значения. Обратите внимание на кавычки:**
 ```
 artelad tx staking create-validator \
 --amount=1000000uart \
@@ -135,7 +135,7 @@ artelad tx staking create-validator \
 -y
 ```
 
-**Найти свою ноду можно в [эксплорере](https://testnet.itrocket.net/artela/staking) по адресу кошелька или по хэшу(txhash) транзакции, которой Вы создали ноду.
+**Найти свою ноду можно в [эксплорере](https://testnet.itrocket.net/artela/staking) по адресу кошелька или по хэшу(txhash) транзакции, которой Вы создали ноду.**
 
 ### Метод установки ноды вручную:
 
