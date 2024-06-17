@@ -117,7 +117,7 @@ EOF
 
 # reset
 artelad tendermint unsafe-reset-all --home $HOME/.artelad --keep-addr-book
-wget https://testnet-files.itrocket.net/artela/snap_artela.tar.lz4
+wget https://snapshots.bwarelabs.com/artela/testnet/artela20240616.tar.lz4
 lz4 -c -d artela20240613.tar.lz4  | tar -x -C $HOME/.artelad
 
 # start service
