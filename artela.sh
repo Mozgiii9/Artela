@@ -155,7 +155,7 @@ EOF
 
 # Функция для создания кошелька
 создать_кошелек() {
-  read -p "Введите имя кошелька: " $WALLET2
+  read -p "Введите имя кошелька: " $WALLET
   echo -e "${GREEN}Создание кошелька $WALLET...${NC}"
   artelad keys add $WALLET
   echo -e "${GREEN}============================================================"
@@ -165,7 +165,9 @@ EOF
   ARTELA_VALOPER_ADDRESS=$(artelad keys show $WALLET --bech val -a)
   echo 'export ARTELA_WALLET_ADDRESS='${ARTELA_WALLET_ADDRESS} >> $HOME/.bash_profile
   echo 'export ARTELA_VALOPER_ADDRESS='${ARTELA_VALOPER_ADDRESS} >> $HOME/.bash_profile
+  artelad debug addr $ARTELA_WALLET_ADDRESS
   source $HOME/.bash_profile
+  echo -e "${GREEN}Возвращаемся в главное меню...${NC}"
 }
 
 # Функция для импорта существующего кошелька
@@ -180,6 +182,7 @@ EOF
   ARTELA_VALOPER_ADDRESS=$(artelad keys show $WALLET --bech val -a)
   echo 'export ARTELA_WALLET_ADDRESS='${ARTELA_WALLET_ADDRESS} >> $HOME/.bash_profile
   echo 'export ARTELA_VALOPER_ADDRESS='${ARTELA_VALOPER_ADDRESS} >> $HOME/.bash_profile
+  artelad debug addr $ARTELA_WALLET_ADDRESS
   source $HOME/.bash_profile
   echo -e "${GREEN}Возвращаемся в главное меню...${NC}"
 }
