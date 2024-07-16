@@ -141,6 +141,7 @@ EOF
   sudo systemctl daemon-reload
   sudo systemctl enable artelad
   sudo systemctl restart artelad
+  source $HOME/.bash_profile
 }
 
 # Функция для проверки синхронизации ноды
