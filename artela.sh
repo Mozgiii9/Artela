@@ -104,6 +104,7 @@ NC='\033[0m' # Без цвета
   sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.artelad/config/app.toml
   sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.artelad/config/app.toml
   sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.artelad/config/app.toml
+  sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.artelad/config/app.toml
   sed -i "s/snapshot-interval *=.*/snapshot-interval = 0/g" $HOME/.artelad/config/app.toml
 
   # Обновление
@@ -118,7 +119,7 @@ NC='\033[0m' # Без цвета
   echo -e "${GREEN}Создание службы Artela...${NC}"
   sudo tee /etc/systemd/system/artelad.service > /dev/null << EOF
 [Unit]
-Description=Служба ноды Artela
+Description=Artela Node Service
 After=network-online.target
 [Service]
 User=$USER
@@ -147,13 +148,14 @@ EOF
 # Функция для проверки синхронизации ноды
 проверить_синхронизацию() {
   echo -e "${GREEN}Проверка синхронизации ноды...${NC}"
+  source $HOME/.bash_profile
   artelad status 2>&1 | jq
   echo -e "${GREEN}Возвращаемся в главное меню...${NC}"
 }
 
 # Функция для создания кошелька
 создать_кошелек() {
-  read -p "Введите имя кошелька: " $WALLET
+  read -p "Введите имя кошелька: " $WALLET2
   echo -e "${GREEN}Создание кошелька $WALLET...${NC}"
   artelad keys add $WALLET
   echo -e "${GREEN}============================================================"
